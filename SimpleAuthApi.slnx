@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SimpleAuthApi.Application/SimpleAuthApi.Application.csproj" />
+    <Project Path="src/SimpleAuthApi.Domain/SimpleAuthApi.Domain.csproj" />
+    <Project Path="src/SimpleAuthApi.Infrastructure/SimpleAuthApi.Infrastructure.csproj" />
+    <Project Path="src/SimpleAuthApi.WebApi/SimpleAuthApi.WebApi.csproj" />
+  </Folder>
+</Solution>
