@@ -16,10 +16,19 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+    public async Task<IActionResult> Register(RegisterRequest request)
     {
-        var success = await _authService.RegisterAsync(request);
-        if (!success) return BadRequest("Email already exists");
+        var result = await _authService.RegisterAsync(request);
+        if (!result) return BadRequest("Email already in use.");
         return Ok("User registered");
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login(LoginRequest request)
+    {
+        var token = await _authService.LoginAsync(request);
+        if (token == null) return Unauthorized("Invalid credentials");
+
+        return Ok(new { Token = token });
     }
 }
